@@ -11,7 +11,6 @@ import {useState, useEffect} from 'react';
 import {URL, HOSTNAME, DUMMY_URL } from '../constants/url.js'
 import axios from 'axios';
 
-
 export const Layout = () =>{
 	const [loading, setLoading] = useState(false);
 	const [notYetSearched, setNotYetSearched ] = useState(true);
