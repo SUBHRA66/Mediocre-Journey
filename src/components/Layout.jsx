@@ -1,3 +1,5 @@
+console.log(import.meta.env);
+
 import { BrowserRouter } from "react-router-dom";
 import { CustomFooter } from "./Footer.jsx";
 import { Welcome } from "./Welcome.jsx";
@@ -7,7 +9,6 @@ import { ShimmerUI } from "./ShimmerUI.jsx";
 import { Grid } from "./Grid.jsx";
 import { NotFound } from "./NotFound.jsx";
 import { useState, useEffect } from "react";
-import { URL, HOSTNAME, DUMMY_URL } from "../constants/url.js";
 import axios from "axios";
 
 export const Layout = () => {
@@ -22,7 +23,8 @@ export const Layout = () => {
       setLoading(true);
 
       try {
-        const result = await axios.post(URL + "images", {
+        const URL = `${import.meta.env.VITE_PROTOCOL}://${import.meta.env.VITE_HOST}:${import.meta.env.VITE_PORT}/`;
+          const result = await axios.post(URL + "images", {
           query,
         });
         const array = Array.isArray(result?.data?.images)
@@ -31,7 +33,9 @@ export const Layout = () => {
 
         const data = array.map((imgObj) => ({
           ...imgObj,
-          url: imgObj.url ? imgObj.url.replace("localhost", HOSTNAME) : "",
+          url: imgObj.url
+            ? imgObj.url.replace("localhost", import.meta.env.HOSTNAME)
+            : "",
         }));
         setImgArray(data);
       } catch (err) {
