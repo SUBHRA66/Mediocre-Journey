@@ -1,5 +1,3 @@
-console.log(import.meta.env);
-
 import { BrowserRouter } from "react-router-dom";
 import { CustomFooter } from "./Footer.jsx";
 import { Welcome } from "./Welcome.jsx";
