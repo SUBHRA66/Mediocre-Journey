@@ -22,9 +22,10 @@ export const Layout = () => {
 
       try {
         const URL = `${import.meta.env.VITE_PROTOCOL}://${import.meta.env.VITE_HOST}:${import.meta.env.VITE_PORT}/`;
-          const result = await axios.post(URL + "images", {
+        const result = await axios.post(URL + "images", {
           query,
         });
+
         const array = Array.isArray(result?.data?.images)
           ? result.data.images
           : [];
@@ -32,9 +33,10 @@ export const Layout = () => {
         const data = array.map((imgObj) => ({
           ...imgObj,
           url: imgObj.url
-            ? imgObj.url.replace("localhost", import.meta.env.HOSTNAME)
+            ? imgObj.url.replace("localhost", import.meta.env.VITE_HOST)
             : "",
         }));
+
         setImgArray(data);
       } catch (err) {
         console.error("searched failed", err);

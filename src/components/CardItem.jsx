@@ -1,7 +1,5 @@
-import { Card, Modal, Image } from 'antd';
+import { Card, Image } from 'antd';
 import { LinkOutlined } from '@ant-design/icons';
-import { useState } from 'react';
-import { IMG_URL } from '../constants/url.js';
 import { formatTitle } from '../util/format.js'; 
 const {Meta} = Card;
 

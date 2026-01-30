@@ -1,6 +1,5 @@
-import { Divider, Empty, Typography } from 'antd';
-import { IMG_URL } from '../constants/url.js';
-import { SmileOutlined, CloseOutlined } from '@ant-design/icons';
+import { Divider, Typography } from 'antd';
+import { CloseOutlined } from '@ant-design/icons';
 
 export const NotFound = () =>{
 	return (
