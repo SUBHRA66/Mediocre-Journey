@@ -15,25 +15,25 @@ export const Layout = () => {
   const [imgArray, setImgArray] = useState([]);
   const [query, setQuery] = useState();
   const [searched, setSearched] = useState(0);
+
+  const URL = `${import.meta.env.VITE_PROTOCOL}://${import.meta.env.VITE_HOST}:${import.meta.env.VITE_PORT}`;
+
   useEffect(() => {
     if (!query) return;
     const fetchImages = async () => {
       setLoading(true);
 
       try {
-        const URL = `${import.meta.env.VITE_PROTOCOL}://${import.meta.env.VITE_HOST}:${import.meta.env.VITE_PORT}/`;
-        const result = await axios.post(URL + "images", {
+        const result = await axios.post(URL + "/images", {
           query,
         });
-
         const array = Array.isArray(result?.data?.images)
           ? result.data.images
           : [];
-
         const data = array.map((imgObj) => ({
           ...imgObj,
           url: imgObj.url
-            ? imgObj.url.replace("localhost", import.meta.env.VITE_HOST)
+            ? `${URL}${imgObj.url}`
             : "",
         }));
 
