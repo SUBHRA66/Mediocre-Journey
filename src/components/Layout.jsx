@@ -32,9 +32,7 @@ export const Layout = () => {
           : [];
         const data = array.map((imgObj) => ({
           ...imgObj,
-          url: imgObj.url
-            ? `${URL}${imgObj.url}`
-            : "",
+          url: imgObj.url ? `${URL}${imgObj.url}` : "",
         }));
 
         setImgArray(data);
