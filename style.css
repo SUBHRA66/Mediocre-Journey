@@ -1,14 +1,15 @@
 :root {
-	--clr-dark: #fbf3d5;
     --clr-background: #F5F0EB;
     --clr-text: #3d3d3d;
-	--clr-white: #f1f5f9;
-	--clr-slate: #94a3b8;
 	--clr-primary: #5b93a6;
-    --clr-yellow: #ebd5ab;
-    --clr-blue: #471396;
+    --clr-secondary: #d25d5d;
 }
 
+[data-theme="dark"] {
+    --clr-background: #280905;
+    --clr-primary: #c31103 ;
+    --clr-text: #ffe100;
+}
 
 *,
 *::before,
@@ -25,7 +26,6 @@
 
 html, body {
 	height: 100%;
-    background-color: var(--clr-dark);
 }
 
 
@@ -42,37 +42,41 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
 }
-
 .search-bar-container{
-	background-color: transparent;
     margin: 0 auto;
     margin-top: 30px;
-	display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 .search-row {
-    display:flex;
+    display: flex;
     width: 70%;
-    border: 3px solid var(--clr-primary);
     align-items: center;
     overflow: hidden;
-    justify-content: space-between;
+    justify-content:space-evenly;
+    border: 3px solid var(--clr-primary);
     border-radius: 20px;
     gap: 8px;
-    background-color: var(--clr-background);
+}
+.search-button {
+    background: var(--clr-primary);
 }
 .search-icon {
     font-size: 24px;
     padding-left: 8px;
     color: var(--clr-primary);
 }
-.search-row .ant-input
-.search-row .ant-input-group-addon,
-.search-row .ant-input-search-button,
-.search-row .ant-input-affix-wrapper{
-    border-radius: 0 !important;
+.search-bar .ant-btn {
+    background-color: var(--clr-primary);
 }
+.search-bar .ant-btn.ant-btn-primary:hover {
+    background-color: var(--clr-secondary);
+}
+/*
+.search-bar-container{
+	background-color: transparent;
+}*/
 .search-suggestions {
     display: flex;
     flex-direction: row;
@@ -86,15 +90,16 @@ html, body {
 .search-suggested-items {
     border-radius:15px;
     cursor: pointer;
+    background: var(--clr-primary);
     margin: 0 5px;
     font-size: 18px;
+    border: 2px solid var(--clr-primary);  
     font-weight: bold;
-    border: 2px solid var(--clr-text);  
-    padding: 0 5px;
+    padding: 0 10px;
 }
-.search-suggested-items:hover {
+/*.search-suggested-items:hover {
     background-color: var(--clr-primary);
-}
+}*/
 .grid-container {
     margin: 0 auto; 
     padding: auto; 
@@ -102,9 +107,11 @@ html, body {
 }
 .divider .ant-divider-horizontal {
 	margin-left: 0;
-	color: var(--clr-dark);
-	background-color: var(--clr-white);
+	color: var(--clr-primary);
 }
+/*.divider .ant-divider-inner-text {
+    color: var(--clr-primary);
+}*/
 .row {
 	overflow-Y: auto;
     margin: 0 auto;
@@ -134,8 +141,15 @@ html, body {
 }
 .theme-toggle {
     font-size: 22px;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    height: 36px;
+    width: 36px;
     border-radius: 50%;
+    border: 2px solid var(--clr-text);
+    cursor: pointer;
 }
 .logo {
 	height: 40px;
@@ -146,7 +160,6 @@ html, body {
 	z-index: 2;
 	font-weight: bold;
 	font-size: 25px;
-	color: var(--clr-white);
 	display:flex;
 }
 .menu-container{
@@ -197,14 +210,14 @@ html, body {
     line-height: 0.8;
     margin-top: 80px;
 	font-weight: bold;
-    color: var(--clr-text);
+    color: #3d3d3d;
 	font-size: 40px;
 }
 .welcome-text2{
 	text-align: center;
     line-height: 1.1;
 	font-weight: bold;
-    color: var(--clr-text);
+    color: #3d3d3d;
     margin-bottom: 10px;
 	font-size: 30px;
 }
@@ -214,15 +227,17 @@ html, body {
 
 .card-container {
 	width: 300px;
-	border: 2px solid black;
 	border-radius: 12px;
 	overflow: hidden;
 	cursor: pointer;
 }
-
+.card-container:hover {
+    border: 2px solid var(--clr-primary);
+}
 .card-container .ant-card-body {
 	padding: 8px 12px;
 	text-align: center;
+    background-color: var(--clr-primary);
 }
 
 .card-container .ant-card-cover {
@@ -257,6 +272,7 @@ html, body {
 	font-size: 16px;
 	font-weight: 600;
 	margin: 0;
+    color: var(--clr-text);
 }
 
 .custom-footer {

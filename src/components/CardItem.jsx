@@ -21,7 +21,7 @@ export const CardItem = (props) => {
         >
           <Meta className="card-title" title={formattedTitle} />
           <a href={props.src} target="_blank" rel="noopener noreferrer">
-            <LinkOutlined style={{ cursor: "pointer" }} />
+            <LinkOutlined style={{ cursor: "pointer", color: "black"}} />
           </a>
         </div>
       </Card>

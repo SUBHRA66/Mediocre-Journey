@@ -1,5 +1,5 @@
 import logo from "../assets/logo_mj.jpg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dropdown } from "antd";
 import { MenuOutlined, MoonOutlined, SunOutlined } from "@ant-design/icons";
 
@@ -9,10 +9,12 @@ const items = [
 ];
 
 export const Header = () => {
-  const [darkTheme, setDarkTheme] = useState(true);
-    const ToggleTheme= () =>{
-        setDarkTheme(!darkTheme);
-    }
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
     <div className="header-container">
       <img className="logo" src={logo} alt="mediocre_journey" />
@@ -20,8 +22,12 @@ export const Header = () => {
         <h2>Mediocre Journey</h2>
       </div>
       <div className="header-right">
-        <div className="theme-toggle" onClick={ToggleTheme}>
-          {darkTheme ? <MoonOutlined /> : <SunOutlined />}
+        <div className="theme-toggle">
+          {theme === "light" ? (
+            <SunOutlined onClick={() => setTheme("dark")} />
+          ) : (
+            <MoonOutlined onClick={() => setTheme("light")} />
+          )}
         </div>
         <div className="menu-container">
           <Dropdown menu={{ items }} trigger={["click"]}>

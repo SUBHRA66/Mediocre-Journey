@@ -12,7 +12,7 @@ export const CustomFooter = () => {
     <Footer className="custom-footer">
       <Typography.Text className="contact-us">
         Contact Us {": "}
-        <LinkedinOutlined /> {" | "} <FacebookOutlined /> {" | "} <XOutlined />
+        <LinkedinOutlined style={{fontSize:"20px"}}/> {" | "} <FacebookOutlined style={{fontSize:"20px"}} /> {" | "} <XOutlined style ={{fontSize: "20px"}}/>
       </Typography.Text>
     </Footer>
   );

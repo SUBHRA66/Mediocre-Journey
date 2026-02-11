@@ -86,8 +86,8 @@ export const Layout = () => {
         }, 1000);
       }
     };
-    fetchImages();
-    //setImgArray(staticImg);
+   // fetchImages();
+    setImgArray(staticImg);
   }, [searched]);
 
   const handleSearch = (value) => {

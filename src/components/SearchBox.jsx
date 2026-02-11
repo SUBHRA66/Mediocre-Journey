@@ -1,4 +1,4 @@
-import { Input } from "antd";
+import { Input, Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 const { Search } = Input;
 
@@ -15,13 +15,15 @@ export const SearchBox = (props) => {
   return (
     <div className="search-bar-container">
       <div className="search-row">
-        <SearchOutlined
-          className="search-icon"
-        />
+        <SearchOutlined className="search-icon" />
         <Search
           className="search-bar"
           placeholder="Search items"
-          enterButton="Search"
+          enterButton={
+            <Button type="primary">
+              Search
+            </Button>
+          }
           size="large"
           disabled={props.loading}
           loading={props.loading}
