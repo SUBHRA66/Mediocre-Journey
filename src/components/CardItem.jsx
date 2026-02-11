@@ -5,7 +5,6 @@ const { Meta } = Card;
 
 export const CardItem = (props) => {
   const formattedTitle = formatTitle(props.title);
-
   return (
     <>
       <Card

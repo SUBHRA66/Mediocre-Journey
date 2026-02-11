@@ -5,7 +5,7 @@ export const Grid = (props) => {
   return (
     <div className="grid-container">
       <Divider className="divider" titlePlacement="middle">
-        Search Results
+        Showing results for <i>{props.query}</i>
       </Divider>
       <Row className="row">
         {props?.imgArray?.map((image, index) => (

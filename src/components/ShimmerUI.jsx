@@ -5,7 +5,9 @@ const SKELETON_COUNT = 8;
 export const ShimmerUI = (props) => {
   return (
     <div className="grid-container">
-      <Divider titlePlacement="middle">Finding Images</Divider>
+      <Divider titlePlacement="middle">
+        Finding Images for <i>{props.query}</i>
+      </Divider>
       <Row className="row">
         {Array.from({ length: SKELETON_COUNT }).map((_, index) => (
           <Skeleton.Image
