@@ -86,10 +86,17 @@ export const Layout = () => {
         }, 1000);
       }
     };
-   // fetchImages();
-    setImgArray(staticImg);
+    fetchImages();
+    // setImgArray(staticImg);
   }, [searched]);
 
+  const goToHome = () => {
+    setLoading(false);
+    setNotYetSearched(true);
+    setImgArray([]);
+    setQuery();
+    setSearched(0);
+  };
   const handleSearch = (value) => {
     if (!value) return;
     setSearched((prev) => prev + 1);
@@ -100,8 +107,8 @@ export const Layout = () => {
   return (
     <BrowserRouter>
       <div className="layout-container">
-        <Header />
-          {notYetSearched && <Welcome />}
+        <Header onHomeClick={goToHome} />
+        {notYetSearched && <Welcome />}
         <SearchBox loading={loading} onSearch={handleSearch} />
         <div className="main-content">
           {loading && <ShimmerUI loading={loading} query={query} />}

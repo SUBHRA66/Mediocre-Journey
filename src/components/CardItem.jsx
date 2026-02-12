@@ -12,16 +12,16 @@ export const CardItem = (props) => {
         hoverable
         cover={<Image className="card-image" src={props.src} alt="image" />}
       >
-        <div
+      <div
           style={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
           }}
         >
-          <Meta className="card-title" title={formattedTitle} />
+           <Meta className="card-title" title={formattedTitle} />
           <a href={props.src} target="_blank" rel="noopener noreferrer">
-            <LinkOutlined style={{ cursor: "pointer", color: "black"}} />
+            <LinkOutlined className="link-icon" style={{ cursor: "pointer", color: "black"}} />
           </a>
         </div>
       </Card>

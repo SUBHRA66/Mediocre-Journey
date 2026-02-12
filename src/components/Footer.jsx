@@ -1,8 +1,10 @@
-import { Layout, Typography } from "antd";
+import { Layout } from "antd";
+import { STR_COPYRIGHT } from "../constants/strings.js";
 import {
   LinkedinOutlined,
   FacebookOutlined,
   XOutlined,
+  CopyrightOutlined,
 } from "@ant-design/icons";
 
 const { Footer } = Layout;
@@ -10,10 +12,21 @@ const { Footer } = Layout;
 export const CustomFooter = () => {
   return (
     <Footer className="custom-footer">
-      <Typography.Text className="contact-us">
-        Contact Us {": "}
-        <LinkedinOutlined style={{fontSize:"20px"}}/> {" | "} <FacebookOutlined style={{fontSize:"20px"}} /> {" | "} <XOutlined style ={{fontSize: "20px"}}/>
-      </Typography.Text>
+      <div className="footer-left">
+        <CopyrightOutlined /> {STR_COPYRIGHT}
+      </div>
+      <div className="footer-center">
+        <LinkedinOutlined className="social-icons" />
+        <FacebookOutlined className="social-icons" />
+        <XOutlined className="social-icons" />
+        <LinkedinOutlined className="social-icons" />
+      </div>
+      <div className="footer-right">
+        <span>Terms</span>
+        <span>Privacy</span>
+        <span>Cookies</span>
+        <span>Sitemap</span>
+      </div>
     </Footer>
   );
 };

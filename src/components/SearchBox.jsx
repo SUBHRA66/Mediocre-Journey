@@ -1,14 +1,13 @@
 import { Input, Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import { STR_SUGG_1, STR_SUGG_2, STR_SUGG_3, STR_SUGG_4 } from '../constants/strings.js';
 const { Search } = Input;
 
-// dummy suggestions
-
 const suggestedItems = [
-  "Bedroom with red wall",
-  "Bathroom with yellow wall",
-  "Green Backyard",
-  "Living Room with white ceiling fan",
+  STR_SUGG_1,
+  STR_SUGG_2,
+  STR_SUGG_3,
+  STR_SUGG_4,
 ];
 
 export const SearchBox = (props) => {
