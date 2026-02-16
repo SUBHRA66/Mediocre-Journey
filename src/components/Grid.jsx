@@ -1,17 +1,16 @@
-import { Divider, Row } from "antd";
-import { CardItem } from "./CardItem.jsx";
-
+import { Divider } from "antd";
+import { CardItem } from "./CardItem";
 export const Grid = (props) => {
-  return (
-    <div className="grid-container">
-      <Divider className="divider" titlePlacement="middle">
-        Showing results for <i>{props.query}</i>
-      </Divider>
-      <Row className="row">
-        {props?.imgArray?.map((image, index) => (
-          <CardItem title={image?.title} key={index} src={image?.url} />
-        ))}
-      </Row>
-    </div>
-  );
+    return (
+        <>
+            <Divider className="divider">
+                Showing images for <i>{props.query}</i>
+            </Divider>
+            <div className="grid-container">
+                {props?.imgArray?.map((image, index) => (
+                    <CardItem imageObject={image} />
+                ))}
+            </div>
+        </>
+    );
 };
