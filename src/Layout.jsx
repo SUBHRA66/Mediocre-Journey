@@ -1,19 +1,20 @@
-import { BrowserRouter } from "react-router-dom";
-import { CustomFooter } from "./Footer.jsx";
-import { Welcome } from "./Welcome.jsx";
-import { SearchBox } from "./SearchBox.jsx";
-import { Header } from "./Header.jsx";
-import { ShimmerUI } from "./ShimmerUI.jsx";
-import { NotFound } from "./NotFound.jsx";
 import { useState, useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { CustomFooter } from "./components/Footer.jsx";
+import { Welcome } from "./components/Welcome.jsx";
+import { SearchBox } from "./components/SearchBox.jsx";
+import { Header } from "./components/Header.jsx";
+import { ShimmerUI } from "./components/ShimmerUI.jsx";
+import { NotFound } from "./components/NotFound.jsx";
 import axios from "axios";
-import { Grid } from "./Grid.jsx";
+import { Grid } from "./components/Grid.jsx";
 
 const URL2 =
     "https://img.freepik.com/premium-photo/modern-cottage-house-architecture-concept-property-neighborhood-real-estate-property-insurance-property-architecture-housing-suburban-house-architecture-residential-building_474717-200092.jpg?semt=ais_user_personalization&w=740&q=80";
 
 const URL =
     "https://www.adanirealty.com/-/media/project/realty/blogs/types-of-residential-properties.ashx";
+
 const staticImg = [
     {
         title: "Grand mansion in Monaco",
@@ -61,6 +62,7 @@ const staticImg = [
     },
 ];
 
+
 export const Layout = () => {
     const [loading, setLoading] = useState(false);
     const [notYetSearched, setNotYetSearched] = useState(true);
@@ -97,8 +99,8 @@ export const Layout = () => {
                 }, 1000);
             }
         };
-        fetchImages();
-        // setImgArray(staticImg);
+        // fetchImages();
+        setImgArray(staticImg);
     }, [searched]);
 
     const goToHome = () => {
