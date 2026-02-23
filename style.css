@@ -216,6 +216,7 @@ body {
 .not-found-container {
   text-align: center;
   padding: 15px;
+  color: var(--clr-header-text);
 }
 .welcome-container {
   display: flex;
@@ -261,7 +262,7 @@ body {
 }
 .footer-center {
   display: flex;
-  font-size: 20px;
+  font-size: 30px;
   gap: 12px;
 }
 
@@ -279,7 +280,7 @@ body {
   display: flex;
   margin-right: 15px;
   gap: 16px;
-  font-size: 15px;
+  font-size: 20px;
   color: var(--clr-text);
 }
 .footer-right span {
@@ -288,7 +289,6 @@ body {
 
 .main-content {
   flex: 1;
-  margin: auto;
 }
 .contact-us {
   position: absolute;
@@ -333,14 +333,14 @@ body {
 .card-container {
   overflow: hidden;
   width: 100%;
-  border: 3px solid black;
+  border: 2px solid var(--clr-primary);
   background: var(--card-bg);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border-radius: 10px;
 }
 .card-image img {
-  height: 220px;
+  height: 260px;
   width: 100%;
   object-fit: cover;
 }

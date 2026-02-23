@@ -62,7 +62,6 @@ const staticImg = [
     },
 ];
 
-
 export const Layout = () => {
     const [loading, setLoading] = useState(false);
     const [notYetSearched, setNotYetSearched] = useState(true);
@@ -87,7 +86,7 @@ export const Layout = () => {
                     url: imgObj.url
                         ? imgObj.url.replace("localhost", import.meta.env.VITE_HOST)
                         : "",
-                    title: "dummy title",
+                    title: "Braithwaite Mansion",
                 }));
                 setImgArray(data);
             } catch (err) {
@@ -99,8 +98,8 @@ export const Layout = () => {
                 }, 1000);
             }
         };
-        // fetchImages();
-        setImgArray(staticImg);
+        fetchImages();
+        // setImgArray(staticImg);
     }, [searched]);
 
     const goToHome = () => {
