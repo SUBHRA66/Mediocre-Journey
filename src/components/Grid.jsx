@@ -1,6 +1,10 @@
-import { Divider } from "antd";
+import { Modal } from "antd";
 import { CardItem } from "./CardItem";
+import { useState } from "react";
+
 export const Grid = (props) => {
+    const [selectedImage, setSelectedImage] = useState(null);
+
     return (
         <>
             <div className="divider-container">
@@ -13,9 +17,33 @@ export const Grid = (props) => {
             </div>
             <div className="grid-container">
                 {props?.imgArray?.map((image, index) => (
-                    <CardItem imageObject={image} />
+                    <CardItem
+                        imageObject={image}
+                        onClick={() => {
+                            setSelectedImage(image);
+                            console.log(selectedImage);
+                        }}
+                    />
                 ))}
             </div>
+            {selectedImage && (
+                <Modal
+                    className="modal-container"
+                    open={!!selectedImage}
+                    onCancel={() => setSelectedImage(null)}
+                    centered
+                    footer={null}
+                    width="75%"
+                    maskStyle={{ backgroundColor: "rgba(0,0,0,0.85)" }}
+                    closeIcon={<span className="custom-close">✕</span>}
+                >
+                    <div className="modal-content">
+                        <img className="modal-image" src={selectedImage?.url} alt="" />
+
+                        <div className="modal-body">{selectedImage?.caption}</div>
+                    </div>
+                </Modal>
+            )}
         </>
     );
 };

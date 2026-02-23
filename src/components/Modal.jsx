@@ -1,3 +1,14 @@
-export const Modal = () => {
-    return <div>This is a modal</div>;
+import { Modal } from "antd";
+import { useState } from "react";
+
+export const CustomModal = (props) => {
+    return (
+        <div>
+            <Modal
+                title="wolverine"
+                open={props.modalOpened}
+                onCancel={() => props.setModalOpened(false)}
+            />
+        </div>
+    );
 };

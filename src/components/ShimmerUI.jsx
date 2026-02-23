@@ -12,7 +12,7 @@ export const ShimmerUI = (props) => {
                 {Array.from({ length: SKELETON_COUNT }).map((_, index) => (
                     <Skeleton.Image
                         className="shimmer-card-container"
-                        style={{ width: "100%", height: 250 }}
+                        style={{ width: "100%", height: 300 }}
                         key={index}
                         active={props.loading}
                     />
