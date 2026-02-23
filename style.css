@@ -10,6 +10,10 @@
   --background-image: url("./src/assets/undefined.jpg");
   --card-bg: rgba(255, 255, 255, 0.35);
   --opacity: 0.8;
+  --font-primary: ui-sans-serif;
+  /* --font-primary: "Inter", sans-serif; */
+  --header-height: 60px;
+  --clr-border: rgba (255, 255, 255, 0.12);
 }
 
 [data-theme="dark"] {
@@ -23,7 +27,12 @@
   --clr-text: #ffe100;
   --clr-secondary: #d25d5d;
   --opacity: 1;
-  --background-image: url("./src/assets/dark-image.png");
+  --font-primary:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --background-image: url("./src/assets/black_back.png");
+  --clr-border: rgba (255, 255, 255, 0.12);
+  --header-height: 60px;
 }
 
 *,
@@ -41,17 +50,45 @@
 html,
 body {
   height: 100%;
+  font-family: var(--font-primary);
 }
 
+.floating {
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 2px 4px rgbs(0, 0, 0, 0.04);
+}
+
+.floating:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 4px 10px rgbs(0, 0, 0, 0.06);
+}
+
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  word-break: break-word;
+  color: var(--clr-font-color);
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: justify;
+  line-height: 23px;
+}
 /* ROOT CONTAINER  */
 
 .layout-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: transparent;
+  background: linear-gradient(180deg, #2a2f36 0%, #1e1f23 60%, #16171a 100%);
   background-attachment: fixed;
-  background-image: var(--background-image);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -59,8 +96,12 @@ body {
 /*SEARCH BAR STYLES*/
 .search-bar-container {
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 70px;
+  background-color: var(--card-bg);
+  border-radius: 35px;
+  border: 1px solid var(--clr-border);
   display: flex;
+  padding: 10px;
   flex-direction: column;
   align-items: center;
 }
@@ -81,7 +122,7 @@ body {
   align-items: center;
   overflow: hidden;
   justify-content: space-evenly;
-  border: 3px solid var(--clr-primary);
+  border: 2px solid var(--clr-primary);
   border-radius: 20px;
   gap: 8px;
 }
@@ -103,29 +144,37 @@ body {
   display: flex;
   flex-direction: row;
   color: var(--clr-font-color);
-  margin-left: 40px;
   align-items: center;
-  margin: 0 auto;
   margin-top: 15px;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 18px;
 }
 .search-suggested-items {
   border-radius: 15px;
   cursor: pointer;
   margin: 0 5px;
-  font-size: 18px;
   border: 2px solid var(--clr-primary);
-  font-weight: bold;
   padding: 0 10px;
 }
 .search-suggested-items:hover {
   background: var(--clr-primary);
 }
 /*DIVIDER STYLE*/
-.divider .ant-divider-horizontal {
-  margin-left: 0;
+.divider-container {
+  padding: 15px;
+  margin: 20px;
+  background-color: var(--card-bg);
+  border-radius: 30px;
+  border: 1px solid var(--clr-border);
 }
-.divider .ant-divider-inner-text {
+.divider-item {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--clr-font-color);
+}
+.divider-item-2 {
+  font-size: 20px;
+  font-weight: 300;
   color: var(--clr-font-color);
 }
 .row {
@@ -140,12 +189,16 @@ body {
 /*HEADER STYLES*/
 .header-container {
   display: flex;
-  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  position: fixed;
   align-items: center;
   justify-content: space-between;
-  background: transparent;
+  background: #16171a;
   color: var(--clr-text);
-  height: 60px;
+  height: var(--header-height);
   line-height: 64px;
 }
 .header-right {
@@ -226,7 +279,6 @@ body {
 .welcome-text {
   padding: 10px;
   text-align: center;
-  font-family: "Oswald", sans-serif;
   line-height: 0.8;
   margin-top: 80px;
   font-weight: bold;
@@ -236,7 +288,6 @@ body {
 .welcome-text2 {
   text-align: center;
   line-height: 1.1;
-  font-family: "Oswald", sans-serif;
   font-weight: bold;
   color: var(--clr-font-color);
   margin-bottom: 10px;
@@ -289,6 +340,8 @@ body {
 
 .main-content {
   flex: 1;
+  margin: 0 auto;
+  max-width: 1600px;
 }
 .contact-us {
   position: absolute;
@@ -305,26 +358,29 @@ body {
 /*SHIMMER GRID STYLES*/
 .shimmer-grid-container {
   display: grid;
+  max-width: 1600px;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-
-  width: 100vw;
-  margin: 0;
-  padding: 20px;
-  box-sizing: border-box;
+  margin: 10px;
 }
 
 /*SHIMMER CARD STYLE*/
 .shimmer-card-container {
   background-color: var(-clr-background);
-  width: 100%;
+  width: 300px;
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 35px;
+}
+.divider {
+  color: var(--clr-font-color);
+  margin: 10px;
+  font-size: 20px;
+  text-align: center;
 }
 /*GRID CONTAINER*/
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin: 10px;
   gap: 20px;
 }
@@ -333,11 +389,11 @@ body {
 .card-container {
   overflow: hidden;
   width: 100%;
-  border: 2px solid var(--clr-primary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   background: var(--card-bg);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border-radius: 10px;
+  border-radius: 35px;
 }
 .card-image img {
   height: 260px;
@@ -347,6 +403,7 @@ body {
 .card-body {
   padding: 16px;
   min-height: 80px;
+  background-color: licorice;
 }
 .card-title {
   margin: 0 0 8px;

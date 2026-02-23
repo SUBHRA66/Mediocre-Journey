@@ -68,7 +68,6 @@ export const Layout = () => {
     const [imgArray, setImgArray] = useState([]);
     const [query, setQuery] = useState(null);
     const [searched, setSearched] = useState(0);
-
     const URL = `${import.meta.env.VITE_PROTOCOL}://${import.meta.env.VITE_HOST}:${import.meta.env.VITE_PORT}`;
 
     useEffect(() => {
@@ -122,12 +121,16 @@ export const Layout = () => {
                 <Header onHomeClick={goToHome} />
                 {notYetSearched && <Welcome />}
                 <SearchBox loading={loading} onSearch={handleSearch} />
+                {loading && <ShimmerUI loading={loading} query={query} />}
                 <div className="main-content">
-                    {loading && <ShimmerUI loading={loading} query={query} />}
                     {!notYetSearched &&
                         !loading &&
                         (imgArray?.length ? (
-                            <Grid imgArray={imgArray} query={query} />
+                            <Grid
+                                imgArray={imgArray}
+                                query={query}
+                                totalItems={imgArray.length}
+                            />
                         ) : (
                             <NotFound query={query} />
                         ))}

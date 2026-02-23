@@ -15,7 +15,7 @@ const items = [
 ];
 
 export const Header = (props) => {
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState("dark");
 
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);

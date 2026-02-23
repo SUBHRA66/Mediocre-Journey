@@ -5,5 +5,5 @@ export const STR_SUGG_2 = "Bathroom with yellow wall";
 export const STR_SUGG_3 = "Green Backyard";
 export const STR_SUGG_4 = "Living room with white ceiling fan";
 export const STR_CONTACT_US = "Contact Us";
-export const STR_PLATFORM_NAME = "Mediocre Journey";
-export const STR_COPYRIGHT = "Mediocre Journey - All Rights Reserved";
+export const STR_PLATFORM_NAME = "Visual Room Discovery";
+export const STR_COPYRIGHT = "Visual Room Discovery - All Rights Reserved";
