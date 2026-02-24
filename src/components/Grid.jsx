@@ -27,21 +27,17 @@ export const Grid = (props) => {
                     />
                 ))}
             </div>
-            {false && (
-                <CustomModal
-                    isOpen={selectedImage}
-                    onClose={() => setSelectedImage(null)}
-                />
-            )}
             {selectedImage && (
                 <Modal
                     className="modal-container"
                     open={!!selectedImage}
                     onCancel={() => setSelectedImage(null)}
                     centered
+                    focusTriggerAfterClose={false}
+                    autoFocusButton={null}
+                    keyboard={false}
                     footer={null}
                     width="75%"
-                    maskStyle={{ backgroundColor: "rgba(0,0,0,0.85)" }}
                     closeIcon={<span className="custom-close">✕</span>}
                 >
                     <div className="modal-content">

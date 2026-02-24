@@ -8,6 +8,8 @@ import {
     HomeOutlined,
 } from "@ant-design/icons";
 import { STR_PLATFORM_NAME } from "../constants/strings.js";
+import { useTheme } from "../theme/themeProvider.jsx";
+
 const items = [
     { key: "1", label: "Login" },
     { key: "2", label: "Signup" },
@@ -15,11 +17,7 @@ const items = [
 ];
 
 export const Header = (props) => {
-    const [theme, setTheme] = useState("dark");
-
-    useEffect(() => {
-        document.documentElement.setAttribute("data-theme", theme);
-    }, [theme]);
+    const { toggleTheme, darkMode } = useTheme();
 
     return (
         <div className="header-container">
@@ -32,10 +30,10 @@ export const Header = (props) => {
                 </div>
                 <div className="header-right">
                     <div className="theme-toggle">
-                        {theme === "light" ? (
-                            <SunOutlined onClick={() => setTheme("dark")} />
+                        {darkMode ? (
+                            <SunOutlined onClick={toggleTheme} />
                         ) : (
-                            <MoonOutlined onClick={() => setTheme("light")} />
+                            <MoonOutlined onClick={toggleTheme} />
                         )}
                     </div>
                     <div className="home-icon">

@@ -110,8 +110,8 @@ export const Layout = () => {
                 }, 1000);
             }
         };
-        fetchImages();
-        // setImgArray(staticImg);
+        // fetchImages();
+        setImgArray(staticImg);
     }, [searched]);
 
     const goToHome = () => {
@@ -133,8 +133,11 @@ export const Layout = () => {
             <div className="layout-container">
                 <Header onHomeClick={goToHome} />
                 <div className="main-content">
-                    {notYetSearched && <Welcome notYetSearched={notYetSearched} />}
-                    <SearchBox loading={loading} onSearch={handleSearch} />
+                    <SearchBox
+                        loading={loading}
+                        onSearch={handleSearch}
+                        visibility={notYetSearched}
+                    />
                     {loading && <ShimmerUI loading={loading} query={query} />}
                     {!notYetSearched &&
                         !loading &&

@@ -5,15 +5,34 @@ import {
     STR_SUGG_2,
     STR_SUGG_3,
     STR_SUGG_4,
+    STR_SUGG_5,
+    STR_TAGLINE,
+    STR_WELCOME_LINE,
 } from "../constants/strings.js";
 const { Search } = Input;
 
-const suggestedItems = [STR_SUGG_1, STR_SUGG_2, STR_SUGG_3, STR_SUGG_4];
+const suggestedItems = [
+    STR_SUGG_1,
+    STR_SUGG_2,
+    STR_SUGG_3,
+    STR_SUGG_4,
+    STR_SUGG_5,
+];
 
 export const SearchBox = (props) => {
     return (
-        <div className="search-bar-container">
-            <div className="search-row">
+        <div
+            className={
+                props?.visibility
+                    ? "search-bar-container"
+                    : "search-bar</h1-container bg"
+            }
+        >
+            <div className="search-bar-title">
+                <h1>{STR_WELCOME_LINE}</h1>
+            </div>
+            <div className="search-bar-desc">{STR_TAGLINE}</div>
+            <div className={props?.visibility ? "search-row" : "search-row bd"}>
                 <SearchOutlined className="search-icon" />
                 <Search
                     className="search-bar"
@@ -27,7 +46,7 @@ export const SearchBox = (props) => {
                 />
             </div>
             <div className="search-suggestions">
-                <div style={{ padding: 10 }}>Suggested Search</div>
+                <div style={{ padding: 10, fontWeight: "300" }}>Suggested Search</div>
                 {suggestedItems?.map((item) => (
                     <div
                         className="search-suggested-items"

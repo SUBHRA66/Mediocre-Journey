@@ -1,10 +1,11 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Layout } from "./Layout.jsx";
+import { ThemeProvider } from "./theme/themeProvider.jsx";
 
 const App = () => {
     return (
-        <div className="root-container">
+        <div>
             <Layout />
         </div>
     );
@@ -12,6 +13,8 @@ const App = () => {
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
-        <App />
+        <ThemeProvider>
+            <App />
+        </ThemeProvider>
     </StrictMode>,
 );
