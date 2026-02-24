@@ -2,7 +2,8 @@ import { Modal } from "antd";
 import { CardItem } from "./CardItem";
 import { useState } from "react";
 import { formatCaption } from "../util/format";
-
+import { CustomModal } from "./Modal";
+Modal;
 export const Grid = (props) => {
     const [selectedImage, setSelectedImage] = useState(null);
 
@@ -22,11 +23,16 @@ export const Grid = (props) => {
                         imageObject={image}
                         onClick={() => {
                             setSelectedImage(image);
-                            console.log(selectedImage);
                         }}
                     />
                 ))}
             </div>
+            {false && (
+                <CustomModal
+                    isOpen={selectedImage}
+                    onClose={() => setSelectedImage(null)}
+                />
+            )}
             {selectedImage && (
                 <Modal
                     className="modal-container"
