@@ -8,11 +8,10 @@ export const NotFound = (props) => {
                 <CloseOutlined style={{ fontSize: 30 }} />
             </div>
             <p>
-                <Typography.Text>
+                <div>
                     No Data Found for <i>{props.query}</i>
-                </Typography.Text>
-                <br />
-                <Typography.Text>Try searching for something else</Typography.Text>
+                </div>
+                <div>Try searching for something else</div>
             </p>
         </div>
     );

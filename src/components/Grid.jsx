@@ -1,6 +1,7 @@
 import { Modal } from "antd";
 import { CardItem } from "./CardItem";
 import { useState } from "react";
+import { formatCaption } from "../util/format";
 
 export const Grid = (props) => {
     const [selectedImage, setSelectedImage] = useState(null);
@@ -12,7 +13,7 @@ export const Grid = (props) => {
                     Showing images for <i>{props.query}</i>
                 </div>
                 <div className="divider-item-2">
-                    Showing {props?.totalItems} results
+                    Found {props?.totalItems} matching results
                 </div>
             </div>
             <div className="grid-container">
@@ -40,7 +41,9 @@ export const Grid = (props) => {
                     <div className="modal-content">
                         <img className="modal-image" src={selectedImage?.url} alt="" />
 
-                        <div className="modal-body">{selectedImage?.caption}</div>
+                        <div className="modal-body">
+                            {formatCaption(selectedImage?.caption)}
+                        </div>
                     </div>
                 </Modal>
             )}

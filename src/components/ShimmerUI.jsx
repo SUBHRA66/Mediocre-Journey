@@ -1,4 +1,5 @@
-import { Skeleton, Divider } from "antd";
+import { LoadingOutlined } from "@ant-design/icons";
+import { Skeleton, Divider, Spin } from "antd";
 
 const SKELETON_COUNT = 18;
 
@@ -6,6 +7,13 @@ export const ShimmerUI = (props) => {
     return (
         <>
             <div className="divider" titlePlacement="middle">
+                <Spin
+                    indicator={
+                        <LoadingOutlined spin style={{ color: "var(--clr-primary)" }} />
+                    }
+                    size="large"
+                    style={{ marginRight: "20px" }}
+                />
                 Finding Images for <i>{props.query}</i>
             </div>
             <div className="shimmer-grid-container">

@@ -1,4 +1,4 @@
-import logo from "../assets/logo_mj.jpg";
+import logo from "../assets/logo_new.png";
 import { useState, useEffect } from "react";
 import { Dropdown } from "antd";
 import {
@@ -23,37 +23,41 @@ export const Header = (props) => {
 
     return (
         <div className="header-container">
-            <img className="logo" src={logo} alt="mediocre_journey" />
-            <div className="heading">
-                <h2>{STR_PLATFORM_NAME}</h2>
-            </div>
-            <div className="header-right">
-                <div className="theme-toggle">
-                    {theme === "light" ? (
-                        <SunOutlined onClick={() => setTheme("dark")} />
-                    ) : (
-                        <MoonOutlined onClick={() => setTheme("light")} />
-                    )}
+            <div className="header-content">
+                <div className="header-left">
+                    <img className="logo" src={logo} alt="mediocre_journey" />
+                    <div className="heading">
+                        <h2>{STR_PLATFORM_NAME}</h2>
+                    </div>
                 </div>
-                <div className="home-icon">
-                    <HomeOutlined
-                        onClick={props.onHomeClick}
-                        style={{
-                            fontSize: "20px",
-                            fontWeight: "bold",
-                            margin: "5px",
-                            cursor: "pointer",
-                            paddingRight: "5px",
-                        }}
-                    />
-                </div>
-                <div className="menu-container">
-                    <Dropdown menu={{ items }} trigger={["click"]}>
-                        <MenuOutlined
-                            className="menu-icon"
-                            style={{ fontSize: "20px", fontWeight: "bold" }}
+                <div className="header-right">
+                    <div className="theme-toggle">
+                        {theme === "light" ? (
+                            <SunOutlined onClick={() => setTheme("dark")} />
+                        ) : (
+                            <MoonOutlined onClick={() => setTheme("light")} />
+                        )}
+                    </div>
+                    <div className="home-icon">
+                        <HomeOutlined
+                            onClick={props.onHomeClick}
+                            style={{
+                                fontSize: "20px",
+                                fontWeight: "bold",
+                                margin: "5px",
+                                cursor: "pointer",
+                                paddingRight: "5px",
+                            }}
                         />
-                    </Dropdown>
+                    </div>
+                    <div className="menu-container">
+                        <Dropdown menu={{ items }} trigger={["click"]}>
+                            <MenuOutlined
+                                className="menu-icon"
+                                style={{ fontSize: "20px", fontWeight: "bold" }}
+                            />
+                        </Dropdown>
+                    </div>
                 </div>
             </div>
         </div>

@@ -9,7 +9,6 @@ import { NotFound } from "./components/NotFound.jsx";
 import axios from "axios";
 import { Grid } from "./components/Grid.jsx";
 import { DUMMY_CAPTION } from "./constants/strings.js";
-import { CustomModal } from "./components/Modal.jsx";
 
 const URL2 =
     "https://img.freepik.com/premium-photo/modern-cottage-house-architecture-concept-property-neighborhood-real-estate-property-insurance-property-architecture-housing-suburban-house-architecture-residential-building_474717-200092.jpg?semt=ais_user_personalization&w=740&q=80";
@@ -110,8 +109,8 @@ export const Layout = () => {
                 }, 1000);
             }
         };
-        // fetchImages();
-        setImgArray(staticImg);
+        fetchImages();
+        // setImgArray(staticImg);
     }, [searched]);
 
     const goToHome = () => {
@@ -132,10 +131,10 @@ export const Layout = () => {
         <BrowserRouter>
             <div className="layout-container">
                 <Header onHomeClick={goToHome} />
-                {notYetSearched && <Welcome />}
-                <SearchBox loading={loading} onSearch={handleSearch} />
-                {loading && <ShimmerUI loading={loading} query={query} />}
                 <div className="main-content">
+                    {notYetSearched && <Welcome notYetSearched={notYetSearched} />}
+                    <SearchBox loading={loading} onSearch={handleSearch} />
+                    {loading && <ShimmerUI loading={loading} query={query} />}
                     {!notYetSearched &&
                         !loading &&
                         (imgArray?.length ? (
