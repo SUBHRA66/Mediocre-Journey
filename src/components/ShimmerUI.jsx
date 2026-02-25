@@ -6,7 +6,7 @@ const SKELETON_COUNT = 18;
 export const ShimmerUI = (props) => {
     return (
         <>
-            <div className="divider" titlePlacement="middle">
+            <div className="divider">
                 <Spin
                     indicator={
                         <LoadingOutlined spin style={{ color: "var(--clr-primary)" }} />

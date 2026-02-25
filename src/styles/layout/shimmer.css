@@ -1,0 +1,26 @@
+/*SHIMMER GRID STYLES*/
+.shimmer-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/*SHIMMER CARD STYLE*/
+.shimmer-card-container {
+  background-color: var(--clr-shimmer-bg);
+  width: 100%;
+  overflow: hidden;
+  border-radius: 35px;
+}
+.divider {
+  color: var(--clr-font-color);
+  margin: 10px;
+  font-size: 25px;
+  text-align: center;
+}
+.skeleton-card {
+  border-radius: 5px;
+  background-color: var(--clr-background);
+}

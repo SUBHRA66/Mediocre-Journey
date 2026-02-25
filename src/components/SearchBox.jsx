@@ -11,13 +11,7 @@ import {
 } from "../constants/strings.js";
 const { Search } = Input;
 
-const suggestedItems = [
-    STR_SUGG_1,
-    STR_SUGG_2,
-    STR_SUGG_3,
-    STR_SUGG_4,
-    STR_SUGG_5,
-];
+const suggestedItems = [STR_SUGG_1, STR_SUGG_2, STR_SUGG_3, STR_SUGG_4];
 
 export const SearchBox = (props) => {
     return (
@@ -43,13 +37,16 @@ export const SearchBox = (props) => {
                     loading={props.loading}
                     onSearch={props.onSearch}
                     allowClear
+                    value={props?.value}
+                    onChange={(e) => props?.setValue(e.target.value)}
                 />
             </div>
             <div className="search-suggestions">
-                <div style={{ padding: 10, fontWeight: "300" }}>Suggested Search</div>
+                <div style={{ padding: 10, fontWeight: "300" }}>Examples:</div>
                 {suggestedItems?.map((item) => (
                     <div
                         className="search-suggested-items"
+                        key={item}
                         onClick={() => props.onSearch(item)}
                     >
                         {item}

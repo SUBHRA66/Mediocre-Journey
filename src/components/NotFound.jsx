@@ -7,12 +7,12 @@ export const NotFound = (props) => {
             <div className="divider">
                 <CloseOutlined style={{ fontSize: 30 }} />
             </div>
-            <p>
+            <div>
                 <div>
                     No Data Found for <i>{props.query}</i>
                 </div>
                 <div>Try searching for something else</div>
-            </p>
+            </div>
         </div>
     );
 };
