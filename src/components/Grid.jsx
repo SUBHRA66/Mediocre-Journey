@@ -44,7 +44,7 @@ export const Grid = (props) => {
                         <img className="modal-image" src={selectedImage?.url} alt="" />
 
                         <div className="modal-body">
-                            {formatCaption(selectedImage?.caption)}
+                            <b>Description:</b> {formatCaption(selectedImage?.caption)}
                         </div>
                     </div>
                 </Modal>
